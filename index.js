@@ -20,13 +20,15 @@ rl.on('close', () => {
 const question1 = () => {
     return new Promise((resolve) => {
         rl.question('\n是否要在当前文件夹下搜索md文件,否则指定文件夹路径(y/n)>: ', (res) => {
+            res=res.trim()
             resolve(res)
         });
     })
 }
 const question2 = () => {
     return new Promise((resolve) => {
-        rl.question("\n请输入目标路径>: ", function (res) {
+        rl.question("\n请输入目标路径>:", function (res) {
+            res=res.trim()
             resolve(res)
         })
     })
@@ -40,7 +42,7 @@ const main = async () => {
     let res = await question1()
     if (res == 'n' || res == 'no' || res == 'No' || res == 'NO')
         currPath = await question2()
-    else if (res != 'y' || res != 'yes' || res != 'Yes') {
+    else if (res != 'y' && res != 'yes' && res != 'Yes') {
         console.log('\n\u001b[31m输入错误,终止程序\u001b[0m');
         rl.close()
     }
