@@ -29,7 +29,7 @@ function getDelImgs(currPath) {
             })
             imgPathArr.forEach(imgPath => {
                 if (!fs.existsSync(imgPath)) {
-                    console.log(`\u001b[0;31m 此路径不支持删除!请在文档 “ ${path.basename(ele)} ”中检查${path.basename(imgPath)}的格式! \u001b[0m （实际不影响删除）`)
+                    console.log(`\u001b[0;31m 路径格式不支持,该图片已排除!请在文档 "${path.basename(ele)}" 中检查关键字 "${path.basename(imgPath)}" 的格式! \u001b[0m （实际不影响删除）`)
                 } else
                     uesdImgArr.push(imgPath)
             })
