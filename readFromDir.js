@@ -9,10 +9,9 @@ const path = require('path');
  * 
  * @param {String} startPath 要进行查找的目录路径
  * @param {RegExp} fileType 后缀名的正则表达式
- * @returns Array,存放符合后缀名的文件的绝对路径
+ * @returns Promise,resolve结果存放符合后缀名的文件的绝对路径
  */
 function readFromDir(startPath, fileType) {
-    console.log(`正在查找 \u001b[32m ${startPath}\u001b[0m 路径下的文件`);
 
     let fileBox = []
     function dfs(startPath) {
@@ -32,6 +31,7 @@ function readFromDir(startPath, fileType) {
     }
     dfs(startPath) //存放指定后缀名文件的路径
     return fileBox
+
 }
 //示例:
 // log :readFromDir('/Users/jacksonma/Documents/GitHub/md_Document', /\.((md)|(txt))/)
